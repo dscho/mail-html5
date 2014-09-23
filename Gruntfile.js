@@ -17,43 +17,65 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
 
-        connect: {
-            dev: {
-                options: {
-                    port: 8580,
-                    base: '.',
-                    keepalive: true
-                }
-            },
-            test: {
-                options: {
-                    port: 8581,
-                    base: '.'
-                }
-            }
-        },
-
-        jshint: {
-            all: ['Gruntfile.js', 'src/*.js', 'src/js/**/*.js', 'test/unit/*-test.js', 'test/integration/*-test.js'],
-            options: {
-                jshintrc: '.jshintrc'
-            }
-        },
-
-        mocha_phantomjs: {
-            all: {
-                options: {
-                    urls: [
-                        'http://localhost:<%= connect.test.options.port %>/test/unit/index.html',
-                        'http://localhost:<%= connect.test.options.port %>/test/integration/index.html'
-                    ]
-                }
-            }
-        },
+        // General
 
         clean: {
-            dist: ['dist', 'test/lib', 'test/integration/src']
+            dist: ['dist', 'compile', 'test/lib', 'test/integration/src']
         },
+
+        copy: {
+            npmDev: {
+                expand: true,
+                flatten: true,
+                cwd: './',
+                src: [
+                    'node_modules/mocha/mocha.css',
+                    'node_modules/mocha/mocha.js',
+                    'node_modules/chai/chai.js',
+                    'node_modules/sinon/pkg/sinon.js',
+                    'node_modules/browsercrow/src/*.js',
+                    'node_modules/browsersmtp/src/*.js',
+                    'src/lib/openpgp/openpgp.js',
+                    'src/lib/openpgp/openpgp.worker.js',
+                    'src/lib/forge/forge.min.js',
+                    'dist/js/pbkdf2-worker.min.js'
+                ],
+                dest: 'test/lib/'
+            },
+            lib: {
+                expand: true,
+                flatten: true,
+                cwd: 'src/lib/',
+                src: ['openpgp/openpgp.js', 'openpgp/openpgp.worker.js', 'forge/forge.min.js'],
+                dest: 'dist/js/'
+            },
+            font: {
+                expand: true,
+                cwd: 'src/font/',
+                src: ['*'],
+                dest: 'dist/font/'
+            },
+            img: {
+                expand: true,
+                cwd: 'src/img/',
+                src: ['*'],
+                dest: 'dist/img/'
+            },
+            tpl: {
+                expand: true,
+                cwd: 'src/tpl/',
+                src: ['*'],
+                dest: 'dist/tpl/'
+            },
+            app: {
+                expand: true,
+                cwd: 'src/',
+                src: ['*.js', '*.json', 'manifest.*'],
+                dest: 'dist/'
+            }
+        },
+
+        // Stylesheets
 
         sass: {
             dist: {
@@ -63,7 +85,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         autoprefixer: {
             options: {
                 browsers: ['last 2 versions']
@@ -75,10 +96,9 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         csso: {
             options: {
-                banner: '/*! Copyright © <%= grunt.template.today("yyyy") %>, Whiteout Networks GmbH.*/\n'
+                banner: '/*! Copyright © 2013, Whiteout Networks GmbH. All rights reserved.*/\n'
             },
             dist: {
                 files: {
@@ -88,22 +108,12 @@ module.exports = function(grunt) {
             }
         },
 
-        watch: {
-            css: {
-                files: ['src/sass/**/*.scss'],
-                tasks: ['dist-css', 'manifest']
-            },
-            js: {
-                files: ['src/js/**/*.js'],
-                tasks: ['dist-js', 'copy:integration', 'manifest']
-            },
-            lib: {
-                files: ['src/lib/**/*.js'],
-                tasks: ['copy:lib', 'manifest']
-            },
-            app: {
-                files: ['src/*.js', 'src/**/*.html', 'src/**/*.json', 'src/manifest.*', 'src/img/**/*', 'src/font/**/*'],
-                tasks: ['copy:app', 'copy:ca', 'copy:tpl', 'copy:img', 'copy:font', 'manifest-dev', 'manifest']
+        // JavaScript
+
+        jshint: {
+            all: ['Gruntfile.js', 'src/*.js', 'src/js/**/*.js', 'test/unit/*.js', 'test/integration/*.js'],
+            options: {
+                jshintrc: '.jshintrc'
             }
         },
 
@@ -310,57 +320,111 @@ module.exports = function(grunt) {
             }
         },
 
-        copy: {
-            npmDev: {
-                expand: true,
-                flatten: true,
-                cwd: './',
-                src: [
-                    'node_modules/mocha/mocha.css',
-                    'node_modules/mocha/mocha.js',
-                    'node_modules/chai/chai.js',
-                    'node_modules/sinon/pkg/sinon.js',
-                    'node_modules/browsercrow/src/*.js',
-                    'node_modules/browsersmtp/src/*.js',
-                    'src/lib/openpgp/openpgp.js',
-                    'src/lib/openpgp/openpgp.worker.js',
-                    'src/lib/forge/forge.min.js',
-                    'dist/js/pbkdf2-worker.min.js'
-                ],
-                dest: 'test/lib/'
-            },
-            lib: {
-                expand: true,
-                flatten: true,
-                cwd: 'src/lib/',
-                src: ['openpgp/openpgp.js', 'openpgp/openpgp.worker.js', 'forge/forge.min.js'],
-                dest: 'dist/js/'
-            },
-            font: {
-                expand: true,
-                cwd: 'src/font/',
-                src: ['*'],
-                dest: 'dist/font/'
-            },
-            img: {
-                expand: true,
-                cwd: 'src/img/',
-                src: ['*'],
-                dest: 'dist/img/'
-            },
-            tpl: {
-                expand: true,
-                cwd: 'src/tpl/',
-                src: ['*'],
-                dest: 'dist/tpl/'
-            },
-            app: {
-                expand: true,
-                cwd: 'src/',
-                src: ['*.html', '*.js', '*.json', 'manifest.*'],
-                dest: 'dist/'
+        mocha_phantomjs: {
+            all: {
+                options: {
+                    urls: [
+                        'http://localhost:<%= connect.test.options.port %>/test/unit/index.html',
+                        'http://localhost:<%= connect.test.options.port %>/test/integration/index.html'
+                    ]
+                }
             }
         },
+
+        // Assets
+
+        svgmin: {
+            options: {
+                plugins: [{
+                    removeViewBox: false
+                }, {
+                    removeUselessStrokeAndFill: false
+                }]
+            },
+            icons: {
+                files: [{
+                    expand: true,
+                    src: ['img/icons/*.svg'],
+                    cwd: 'src/',
+                    dest: 'compile/'
+                }]
+            }
+        },
+        svgstore: {
+            options: {
+                prefix: 'icon-',
+                svg: {
+                    viewBox: '0 0 100 100',
+                    xmlns: 'http://www.w3.org/2000/svg'
+                },
+                cleanup: true
+            },
+            icons: {
+                files: {
+                    'src/img/icons/all.svg': ['compile/img/icons/*.svg'],
+                }
+            }
+        },
+        'string-replace': {
+            index: {
+                files: {
+                    'dist/index.html': 'src/index.html'
+                },
+                options: {
+                    replacements: [{
+                        pattern: /<!-- @import (.*?) -->/ig,
+                        replacement: function(match, p1) {
+                            return grunt.file.read('src/' + p1);
+                        }
+                    }]
+                }
+            }
+        },
+
+        // Development
+
+        connect: {
+            dev: {
+                options: {
+                    port: 8580,
+                    base: '.',
+                    keepalive: true
+                }
+            },
+            test: {
+                options: {
+                    port: 8581,
+                    base: '.'
+                }
+            }
+        },
+
+        // Utilities
+
+        watch: {
+            css: {
+                files: ['src/sass/**/*.scss'],
+                tasks: ['dist-css', 'manifest']
+            },
+            js: {
+                files: ['src/js/**/*.js'],
+                tasks: ['copy:js', 'copy:integration', 'manifest']
+            },
+            icons: {
+                files: ['src/index.html', 'src/img/icons/*.svg', '!src/img/icons/all.svg'],
+                tasks: ['svgmin', 'svgstore', 'string-replace']
+            },
+            lib: {
+                files: ['src/lib/**/*.js'],
+                tasks: ['copy:lib', 'manifest']
+            },
+            app: {
+                files: ['src/*.js', 'src/**/*.html', 'src/**/*.json', 'src/manifest.*', 'src/img/**/*', 'src/font/**/*'],
+                tasks: ['copy:app', 'copy:ca', 'copy:tpl', 'copy:img', 'copy:font', 'manifest-dev', 'manifest']
+            }
+        },
+
+        // Deployment
 
         compress: {
             main: {
@@ -420,12 +484,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-manifest');
     grunt.loadNpmTasks('grunt-mocha-phantomjs');
     grunt.loadNpmTasks('grunt-exorcise');
+    grunt.loadNpmTasks('grunt-string-replace');
+    grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-svgstore');
 
     // Build tasks
     grunt.registerTask('dist-css', ['sass', 'autoprefixer', 'csso']);
     grunt.registerTask('dist-js', ['browserify', 'exorcise', 'uglify']);
     grunt.registerTask('dist-copy', ['copy']);
-    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-copy', 'manifest']);
+    grunt.registerTask('dist-assets', ['svgmin', 'svgstore', 'string-replace']);
+    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-assets', 'dist-copy', 'manifest']);
 
     // Test/Dev tasks
     grunt.registerTask('dev', ['connect:dev']);
