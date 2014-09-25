@@ -27,7 +27,7 @@
                 width: 100%;
             }
 
-            @include respond-to(desktop) {
+            @include respond-to(md) {
                 width: 10em;
             }
         }

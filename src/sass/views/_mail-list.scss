@@ -12,7 +12,7 @@
         flex-shrink: 0;
         cursor: pointer;
         padding: $padding-vertical $padding-horizontal;
-        @include respond-to(mobile) {
+        @include respond-to(sm-only) {
             padding: ($padding-vertical + 5px) $padding-horizontal;
         }
 
@@ -50,7 +50,7 @@
             right: $padding-horizontal - 2px;
         }
 
-        @include respond-to(desktop) {
+        @include respond-to(md) {
             display: none;
         }
 

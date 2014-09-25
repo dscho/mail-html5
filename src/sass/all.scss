@@ -6,11 +6,16 @@
 @import "lib/scut";
 @import "lib/normalize";
 
+// Config
+@import "base/config"; // Modify this for custom colors, font-sizes, etc
+
+// Mixins
+
+@import "mixins/responsive";
+
 // Bootstrap
-@import "variables"; // Modify this for custom colors, font-sizes, etc
-@import "fonts";
-@import "responsive";
-@import "scaffolding";
+@import "base/fonts";
+@import "base/scaffolding";
 
 // Components
 @import "components/buttons";

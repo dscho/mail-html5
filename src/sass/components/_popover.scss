@@ -30,7 +30,7 @@
       margin-left: -10px;
     }
     &.desktop-only {
-        @include respond-to(mobile) {
+        @include respond-to(sm-only) {
             display: none;
         }
     }

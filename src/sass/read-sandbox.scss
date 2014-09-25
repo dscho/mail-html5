@@ -2,8 +2,8 @@
 @import "functions";
 
 // Bootstrap
-@import "variables";
-@import "fonts";
+@import "base/config";
+@import "base/fonts";
 
 // Components
 @import "components/scrollbars";

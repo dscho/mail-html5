@@ -14,7 +14,7 @@
     height: 100%;
     background: $color-white;
     will-change: transform;
-    @include respond-to(desktop) {
+    @include respond-to(md) {
         transition: transform $time-nav-animation ease-out;
     }
 
@@ -30,7 +30,7 @@
         content: '';
         opacity: 0;
         transform: scale(0, 0);
-        @include respond-to(desktop) {
+        @include respond-to(md) {
             transition: opacity $time-nav-animation, transform 0.1s $time-nav-animation;
         }
     }
@@ -49,7 +49,7 @@
     transform: translate3d(-50%, 0, 0);
     will-change: transform;
 
-    @include respond-to(desktop) {
+    @include respond-to(md) {
         transition: transform $time-nav-animation ease-out;
     }
 }
@@ -67,7 +67,7 @@
         &:after {
             transform: scale(1, 1);
             opacity: 1;
-            @include respond-to(desktop) {
+            @include respond-to(md) {
                 transition: opacity $time-nav-animation;
             }
         }

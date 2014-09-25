@@ -16,7 +16,7 @@
             width: 320px;
         }
 
-        @include respond-to(desktop) {
+        @include respond-to(md) {
             margin: 115px auto 75px;
         }
     }

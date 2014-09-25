@@ -7,7 +7,7 @@
     height: 100%;
     overflow: hidden;
 
-    @include respond-to(mobile) {
+    @include respond-to(sm-only) {
         display: none;
         width: 100%;
     }
@@ -16,18 +16,18 @@
 .column-left {
     float: left;
 
-    @include respond-to(mobile) {
+    @include respond-to(sm-only) {
         display: block;
     }
 
-    @include respond-to(desktop) {
+    @include respond-to(md) {
         width: $content-nav-width;
         border-right: 1px solid $color-grey-light;
     }
 }
 
 .shift-right {
-    @include respond-to(mobile) {
+    @include respond-to(sm-only) {
         .column {
             display: block;
         }

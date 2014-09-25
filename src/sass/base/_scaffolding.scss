@@ -1,10 +1,12 @@
-// Reset the box-sizing
+
+@include scut-reset-border-box;
+@include scut-reset-pointer;
+@include scut-reset-semanticize;
+@include scut-reset-button;
 
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
-
     // remove flickering on item touch selection in ios
     -webkit-tap-highlight-color: transparent !important;
 }
@@ -40,7 +42,7 @@ textarea {
 }
 
 fieldset {
-  border: 1px solid $color-grey-lighter;
+    border: 1px solid $color-grey-lighter;
 }
 
 // Basic layout

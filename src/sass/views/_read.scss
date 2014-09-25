@@ -22,7 +22,7 @@
                 height: 0.8em;
                 width: 0.8em;
 
-                @include respond-to(desktop) {
+                @include respond-to(md) {
                     display: none;
                 }
             }

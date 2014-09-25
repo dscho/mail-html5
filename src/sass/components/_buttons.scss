@@ -54,7 +54,7 @@
             fill: $btn-disabled-color;
         }
 
-        @include respond-to(retina) {
+        @include scut-hd-bp {
             background-size: 3px 3px;
         }
     }
@@ -69,7 +69,7 @@
         fill: $label-primary-color;
     }
 
-    @include respond-to(retina) {
+    @include scut-hd-bp {
         background-size: 3px 3px;
     }
 
@@ -113,7 +113,7 @@
     width: 2.5em;
     text-align: center;
     -webkit-font-smoothing: antialiased;
-    @include respond-to(desktop) {
+    @include respond-to(lg) {
         transition: color 0.3s;
         transform: translate3d(0,0,0); // to prevent flickering
     }
@@ -154,13 +154,13 @@
         padding: 2px;
         z-index: -1;
         background: $btn-icon-color;
-        @include respond-to(desktop) {
+        @include respond-to(lg) {
             transition: transform 0.3s, opacity 0.4s;
             transform: scale(1.2);
         }
         opacity: 0;
     }
-    @include respond-to(desktop) {
+    @include respond-to(lg) {
         &:hover {
             svg {
                 fill: $color-white;

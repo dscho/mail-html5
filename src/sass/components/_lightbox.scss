@@ -6,7 +6,7 @@
     height: 100%;
     z-index: 2000;
 
-    @include respond-to(desktop) {
+    @include respond-to(md) {
         margin: 0 auto;
         width: $lightbox-width;
         max-width: $lightbox-max-width;
@@ -24,7 +24,7 @@
         display: flex;
         flex-direction: column;
 
-        @include respond-to(desktop) {
+        @include respond-to(md) {
             max-height: $lightbox-min-height;
         }
 
@@ -82,7 +82,7 @@
     background: $color-grey-dark-alpha;
     overflow: auto;
 
-    @include respond-to(desktop) {
+    @include respond-to(md) {
         @include scut-vcenter-ib(".lightbox");
         text-align: center;
     }
@@ -95,12 +95,12 @@
     &.show-add {
         display: block;
         opacity: 0;
-        @include respond-to(desktop) {
+        @include respond-to(md) {
             transition: opacity 0.3s;
         }
         .lightbox-body {
             transform: scale(0.7);
-            @include respond-to(desktop) {
+            @include respond-to(md) {
                 transition: transform 0.3s;
             }
         }
@@ -114,12 +114,12 @@
     &.show-remove {
         display: block;
         opacity: 1;
-        @include respond-to(desktop) {
+        @include respond-to(md) {
             transition: opacity 0.3s;
         }
         .lightbox-body {
             transform: scale(1);
-            @include respond-to(desktop) {
+            @include respond-to(md) {
                 transition: transform 0.3s;
             }
         }
