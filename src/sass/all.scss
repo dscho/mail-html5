@@ -4,9 +4,9 @@
 // Third party libs
 @import "lib/angular-csp"; // use angular csp specific classes
 @import "lib/scut";
+@import "lib/normalize";
 
 // Bootstrap
-@import "normalize";
 @import "variables"; // Modify this for custom colors, font-sizes, etc
 @import "fonts";
 @import "responsive";
