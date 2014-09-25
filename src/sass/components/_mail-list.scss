@@ -43,7 +43,7 @@
         }
 
         h3 {
-            @include text-overflow;
+            @include scut-truncate;
 
             color: $color-blue;
             font-size: $font-size-bigger;
@@ -72,7 +72,7 @@
             margin-bottom: 0.25em;
 
             .subject {
-                @include text-overflow;
+                @include scut-truncate;
 
                 color: $color-grey-dark;
                 font-weight: bold;

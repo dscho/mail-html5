@@ -15,7 +15,7 @@
             padding: 0 $nav-padding;
             height: 84px;
             h1 {
-                @include hide-text();
+                @include scut-image-replace();
                 background: url(../img/whiteout_logo_light.svg) left top no-repeat;
                 background-size: contain;
                 height: 30px;
@@ -40,7 +40,7 @@
                 display: block;
 
                 a {
-                    @include clearfix();
+                    @include scut-clearfix();
                     display: block;
                     font-size: $font-size-bigger;
                     vertical-align: middle;
