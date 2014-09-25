@@ -52,12 +52,18 @@
             }
 
             button.remove {
-                font-family: $font-family-icons;
                 font-size: 0.75em;
-                color: $color-grey-input;
                 border: none;
                 background: none;
                 outline: none;
+                padding: 0;
+                vertical-align: middle;
+
+                svg {
+                    height: 0.8em;
+                    width: 0.8em;
+                    fill: $color-grey-input;
+                }
             }
         }
 

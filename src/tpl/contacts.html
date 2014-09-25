@@ -1,7 +1,9 @@
 <div class="lightbox-body" ng-controller="ContactsCtrl">
   <header>
     <h2>Contacts</h2>
-    <button class="close" wo-touch="state.contacts.toggle(false)" data-action="lightbox-close">&#xe007;</button>
+    <button class="close" wo-touch="state.contacts.toggle(false)" data-action="lightbox-close">
+      <svg><use xlink:href="#icon-close" /><title>Close</title></svg>
+    </button>
   </header>
 
   <div class="content">
@@ -31,7 +33,7 @@
               <td>{{key.userId}}</td>
               <td>{{key.created | date:'mediumDate'}}</td>
               <td>{{key.bitSize}} bit</td>
-              <td><button class="remove" wo-touch="removeKey(key)">&#xe007;</button></td>
+              <td><button class="remove" wo-touch="removeKey(key)"><svg><use xlink:href="#icon-close" /><title>Delete</title></svg></button></td>
             </tr>
           </table>
         </div><!--/.key-list-scroll-->

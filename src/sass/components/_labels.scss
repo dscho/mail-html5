@@ -11,11 +11,12 @@
     color: $label-color;
     transition: background-color 0.3s;
 
-    &[data-icon]:before {
-        padding-right: 0.5em;
-    }
-    &[data-icon-append]:after {
-        padding-left: 0.5em;
+    svg {
+        display: inline-block;
+        fill: $label-color;
+        width: 1.5em;
+        height: 1em;
+        vertical-align: baseline;
     }
 }
 
@@ -23,6 +24,10 @@
     background-color: $label-primary-back-color;
     color: $label-primary-color;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJUlEQVQIW2NkQABJIPM5lCvJCGMgC4LYIAkUlTAFMB0gjRQaBQCw8go5lVnl5wAAAABJRU5ErkJggg==);
+
+    svg {
+        fill: $label-primary-color;
+    }
 
     @include respond-to(retina) {
         background-size: 3px 3px;
@@ -51,6 +56,10 @@
     text-align: left;
     padding-left: 0;
     padding-right: 0;
+
+    svg {
+        fill: $color-black;
+    }
 }
 
 .label-light {
@@ -61,4 +70,8 @@
     min-width: 2.5em;
     font-weight: bold;
     font-size: $font-size-base;
+
+    svg {
+        fill: $label-light-color;
+    }
 }

@@ -2,30 +2,48 @@
 
   <div class="headers">
     <div class="controls">
-      <button wo-touch="state.mailList.remove(state.mailList.selected)" class="btn-icon" title="Delete mail">&#xe005;</button>
-      <button class="btn-icon" title="Reply to" reply-selection>&#xe002;</button>
-      <button wo-touch="state.writer.write()" class="btn-icon" title="New mail">&#xe006;</button>
+      <button wo-touch="state.mailList.remove(state.mailList.selected)" class="btn-icon" title="Delete mail">
+        <svg><use xlink:href="#icon-delete" /><title>Delete mail</title></svg>
+      </button>
+      <button class="btn-icon" title="Reply to" reply-selection>
+        <svg><use xlink:href="#icon-reply" /><title>Reply to</title></svg>
+      </button>
+      <button wo-touch="state.writer.write()" class="btn-icon" title="New mail">
+        <svg><use xlink:href="#icon-write" /><title>New mail</title></svg>
+      </button>
     </div><!--/.controls-->
 
-    <p class="subject" wo-touch="state.read.toggle(false)" data-icon="&#xe016;">{{state.mailList.selected.subject ? state.mailList.selected.subject : 'No subject'}}</p>
+    <p class="subject" wo-touch="state.read.toggle(false)">
+      <svg><use xlink:href="#icon-back" /><title>Back</title></svg>
+      {{state.mailList.selected.subject ? state.mailList.selected.subject : 'No subject'}}
+    </p>
     <p class="date">{{state.mailList.selected.sentDate | date:'EEEE, MMM d, yyyy h:mm a'}}</p>
     <div class="mail-addresses">
       <p>
         <label>From:</label>
         <span ng-repeat="u in state.mailList.selected.from">
-          <span class="label" ng-class="{'label-primary': u.secure === false, 'label-primary-click': u.secure === false}" data-icon-append="{{(u.secure === false) ? '&#xe001;' : ''}}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">{{u.name || u.address}}</span>
+          <span class="label" ng-class="{'label-primary': u.secure === false, 'label-primary-click': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">
+            {{u.name || u.address}}
+            <svg ng-show="u.secure === false"><use xlink:href="#icon-add_contact" /></svg>
+          </span>
         </span>
       </p>
       <p>
         <label>To:</label>
         <span ng-repeat="u in state.mailList.selected.to">
-          <span class="label" ng-class="{'label-primary': u.secure === false, 'label-primary-click': u.secure === false}" data-icon-append="{{(u.secure === false) ? '&#xe001;' : ''}}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">{{u.name || u.address}}</span>
+          <span class="label" ng-class="{'label-primary': u.secure === false, 'label-primary-click': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">
+            {{u.name || u.address}}
+            <svg ng-show="u.secure === false"><use xlink:href="#icon-add_contact" /></svg>
+          </span>
         </span>
       </p>
       <p ng-show="state.mailList.selected.cc && state.mailList.selected.cc.length > 0">
         <label>Cc:</label>
         <span ng-repeat="u in state.mailList.selected.cc">
-          <span class="label" ng-class="{'label-primary': u.secure === false, 'label-primary-click': u.secure === false}" data-icon-append="{{(u.secure === false) ? '&#xe001;' : ''}}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">{{u.name || u.address}}</span>
+          <span class="label" ng-class="{'label-primary': u.secure === false, 'label-primary-click': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">
+            {{u.name || u.address}}
+            <svg ng-show="u.secure === false"><use xlink:href="#icon-add_contact" /></svg>
+          </span>
         </span>
       </p>
     </div><!--/.mail-addresses-->
@@ -38,7 +56,7 @@
         ng-repeat="attachment in state.mailList.selected.attachments"
         wo-touch="download(attachment)">
         <span ng-if="attachment.busy" class="spinner"></span>
-        <span ng-hide="attachment.busy" data-icon="&#xe003;"></span>
+        <svg ng-hide="attachment.busy"><use xlink:href="#icon-attachment" /></svg>
         {{attachment.filename}}
       </span><!--/.attachment-->
     </div><!--/.attachments-->
@@ -80,9 +98,9 @@
   <div class="reply-selection popover bottom">
     <div class="arrow"></div>
     <ul class="popover-content">
-      <li><button data-icon="&#xe014;" wo-touch="state.writer.write(state.mailList.selected)">Reply</button></li>
-      <li><button data-icon="&#xe013;" wo-touch="state.writer.write(state.mailList.selected, true)">Reply All</button></li>
-      <li><button data-icon="&#xe015;" wo-touch="state.writer.write(state.mailList.selected, null, true)">Forward</button></li>
+      <li><button wo-touch="state.writer.write(state.mailList.selected)"><svg><use xlink:href="#icon-reply_light" /></svg> Reply</button></li>
+      <li><button wo-touch="state.writer.write(state.mailList.selected, true)"><svg><use xlink:href="#icon-reply_all_light" /></svg> Reply All</button></li>
+      <li><button wo-touch="state.writer.write(state.mailList.selected, null, true)"><svg><use xlink:href="#icon-forward_light" /></svg> Forward</button></li>
     </ul>
   </div><!--/.reply-selection-->
 

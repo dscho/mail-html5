@@ -22,6 +22,12 @@
     font-weight: normal;
     outline: 0;
 
+    svg {
+        width: 1em;
+        height: 1em;
+        fill: $btn-color;
+    }
+
     &:hover,
     &:focus {
         background-color: lighten($btn-back-color, 10%);
@@ -44,16 +50,13 @@
         background-color: $btn-disabled-back-color;
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJUlEQVQIW2NkQABJIPM5lCvJCGMgC4LYIAkUlTAFMB0gjRQaBQCw8go5lVnl5wAAAABJRU5ErkJggg==);
 
+        svg {
+            fill: $btn-disabled-color;
+        }
+
         @include respond-to(retina) {
             background-size: 3px 3px;
         }
-    }
-
-    &[data-icon]:before {
-        padding-right: 0.5em
-    }
-    &[data-icon-append]:after {
-        padding-left: 0.5em
     }
 }
 
@@ -61,6 +64,10 @@
     background-color: $label-primary-back-color;
     color: $label-primary-color;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAJUlEQVQIW2NkQABJIPM5lCvJCGMgC4LYIAkUlTAFMB0gjRQaBQCw8go5lVnl5wAAAABJRU5ErkJggg==);
+
+    svg {
+        fill: $label-primary-color;
+    }
 
     @include respond-to(retina) {
         background-size: 3px 3px;
@@ -92,17 +99,14 @@
     margin: 2px;
     box-shadow: 0 0 0 2px $btn-icon-color;
     border-radius: 50%;
-    color: $btn-icon-color;
     vertical-align: middle;
     cursor: pointer;
     white-space: nowrap;
     user-select: none;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    color: $btn-icon-color;
     text-decoration: none;
     font-weight: normal;
     font-size: $font-size-base;
-    font-family: $font-family-icons;
     line-height: 1;
     height: 2.5em;
     width: 2.5em;
@@ -113,6 +117,12 @@
         transform: translate3d(0,0,0); // to prevent flickering
     }
     outline: none;
+
+    svg {
+        width: 1.2em;
+        height: 1.2em;
+        fill: $btn-icon-color;
+    }
 
     &.disabled,
     &[disabled],
@@ -151,7 +161,9 @@
     }
     @include respond-to(desktop) {
         &:hover {
-            color: $color-white;
+            svg {
+                fill: $color-white;
+            }
             &:after {
                 transform: scale(0.8);
                 opacity: 1;

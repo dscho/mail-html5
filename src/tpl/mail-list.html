@@ -1,6 +1,7 @@
 <div class="view-mail-list" ng-controller="MailListCtrl">
   <!-- nav controll and section headline -->
-  <header data-icon="&#xe004;" wo-touch="state.nav.toggle(true); $event.stopPropagation()">
+  <header wo-touch="state.nav.toggle(true); $event.stopPropagation()">
+    <svg><use xlink:href="#icon-navicon" /><title>Toggle Navigation</title></svg>
     <h2>{{state.nav.currentFolder.type}}</h2>
   </header>
 
@@ -8,7 +9,8 @@
     <button class="btn-icon" title="New mail"></button>
   </div>
 
-  <div class="search" data-icon="&#xe017;">
+  <div class="search">
+    <svg><use xlink:href="#icon-search" /><title>Search</title></svg>
     <input class="input-text" type="text" ng-model="searchText"
       ng-change="displaySearchResults(searchText)"
       placeholder="Search" focus-me="state.mailList.searching">
@@ -21,7 +23,8 @@
         wo-touch="select(email)"
         ng-repeat="email in displayMessages">
         <h3>{{email.from[0].name || email.from[0].address}}</h3>
-        <div class="encrypted" data-icon="{{email.encrypted && email.decrypted ? '&#xe012;' : email.encrypted ? '&#xe009;' : ''}}"></div>
+        <svg class="encrypted" ng-show="email.encrypted && !email.decrypted"><use xlink:href="#icon-encrypted" /><title>Encrypted</title></svg>
+        <svg class="encrypted" ng-show="email.encrypted && email.decrypted"><use xlink:href="#icon-decrypted" /><title>Decrypted</title></svg>
         <div class="head">
           <p class="subject">{{email.subject || 'No subject'}}</p>
           <time>{{email.sentDate | date:'mediumDate'}}</time>
@@ -29,8 +32,12 @@
         <p class="body">{{email.body ? email.body.substr(0, 200) : ''}}</p>
         <ul class="flags">
           <li ng-show="email.unread"></li>
-          <li data-icon="&#xe002;" ng-show="!email.unread && email.answered"></li>
-          <li data-icon="&#xe003;" ng-show="email.attachments !== undefined && email.attachments.length > 0"></li>
+          <li ng-show="!email.unread && email.answered">
+            <svg><use xlink:href="#icon-reply" /><title>Answered</title></svg>
+          </li>
+          <li ng-show="email.attachments !== undefined && email.attachments.length > 0">
+            <svg><use xlink:href="#icon-attachment" /><title>Attachments</title></svg>
+          </li>
         </ul>
       </li>
     </ul><!--/.mail-list-->
@@ -38,9 +45,9 @@
 
   <footer ng-class="{syncing: account.loggingIn || account.busy || searching}">
     <span class="spinner"></span>
-    <span class="text" ng-switch="account.online">
+    <span class="text" ng-switch="false" fng-switch="account.online">
       <span ng-switch-when="false">
-        <span class="offline" data-icon="&#xe011;"></span>
+        <svg><use xlink:href="#icon-offline" /></svg>
       </span>
       {{lastUpdateLbl}} {{lastUpdate | date:'shortTime'}}
     </span>

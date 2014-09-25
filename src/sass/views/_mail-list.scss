@@ -16,9 +16,10 @@
             padding: ($padding-vertical + 5px) $padding-horizontal;
         }
 
-        &:before {
-            color: $color-blue;
-            font-size: $font-size-bigger;
+        svg {
+            fill: $color-blue;
+            width: 2em;
+            height: 2em;
             margin-right: 0.5em;
             vertical-align: middle;
         }
@@ -72,12 +73,13 @@
             width: 100%;
             padding-left: 1.7em;
         }
-        &:before {
+        svg {
             position: absolute;
             left: 25px;
-            color: $color-grey-medium;
-            top: 8px;
-            line-height: 1.3em;
+            fill: $color-grey-medium;
+            top: 10px;
+            height: 1em;
+            width: 1em;
         }
     }
 
@@ -118,14 +120,17 @@
             border-top: 1px solid $color-grey-medium;
         }
 
-        .offline {
-            &[data-icon]:before {
-                padding-right: 0.5em;
-            }
+        svg {
+            display: inline-block;
+            height: 1.5em;
+            width: 1.5em;
+            padding-right: 0.5em;
+            fill: $color-grey-dark;
+            vertical-align: middle;
         }
 
         .spinner {
-            display:none;
+            display: none;
         }
 
         &.syncing {

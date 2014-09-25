@@ -90,9 +90,6 @@
             font-size: 1em;
             outline: 0;
 
-            &:before {
-                padding: 0;
-            }
             &:active,
             &.active {
                 top: 6px;
@@ -116,26 +113,40 @@
             border-radius: 16px;
             vertical-align: middle;
             margin: 5px 0 5px 5px;
-            padding: 5px 5px 5px 10px;
-            border: 1px;
-            border-style: solid;
-            border-color: $color-grey-lighter;
+            padding: 5px 10px;
+            border: 1px solid $color-grey-lighter;
             cursor: default;
             display: inline-block;
 
-            span {
-                font-size: 14px;
-                color: $color-grey-input;
-                vertical-align: middle;
+            svg {
+                display: inline-block;
+                height: 0.8em;
+                width: 0.8em;
+                fill: $color-grey-input;
+                vertical-align: baseline;
             }
 
-            .close {
+            .attachment-delete {
+                display: inline-block;
+                border: none;
+                background: none;
+                outline: none;
                 margin-left: 5px;
+                padding: 0;
+                vertical-align: middle;
+
+                svg {
+                    width: 1em;
+                    height: 1em;
+                    fill: $color-grey-input;
+                    vertical-align: baseline;
+                }
 
                 &:hover,
                 &:focus {
-                    color: darken($color-grey, 10%);
-                    cursor: pointer;
+                    svg {
+                        fill: darken($color-grey, 10%);
+                    }
                 }
             }
 

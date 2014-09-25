@@ -1,7 +1,9 @@
 <div class="lightbox-body" ng-controller="WriteCtrl">
   <header>
     <h2>{{writerTitle}}</h2>
-    <button class="close" wo-touch="state.writer.close()" data-action="lightbox-close">&#xe007;</button>
+    <button class="close" wo-touch="state.writer.close()" data-action="lightbox-close">
+      <svg><use xlink:href="#icon-close" /><title>Close</title></svg>
+    </button>
   </header>
   <div class="content view-write">
 
@@ -47,14 +49,18 @@
     <div class="subject-box">
       <input class="input-text" ng-model="subject" spellcheck="true" tabindex="2" placeholder="Subject" ng-change="updatePreview()">
       <input id="attachment-input" type="file" multiple attachment-input>
-      <button class="btn btn-attachment" data-icon="&#xe003;" ng-class="{'btn-primary': sendBtnSecure === false}" attachment-btn></button>
+      <button class="btn btn-attachment" ng-class="{'btn-primary': sendBtnSecure === false}" attachment-btn>
+        <svg><use xlink:href="#icon-attachment" /><title>Add attachment</title></svg>
+      </button>
     </div><!--/.subject-box-->
 
     <div class="attachments-box" ng-show="attachments.length > 0">
       <span ng-repeat="attachment in attachments" class="attachment">
-        <span data-icon="&#xe003;"></span>
+        <svg><use xlink:href="#icon-attachment" /></svg>
         {{attachment.filename}}
-        <span class="close" data-icon="&#xe000;" wo-touch="remove(attachment)"></span>
+        <button class="attachment-delete" wo-touch="remove(attachment)">
+          <svg><use xlink:href="#icon-close_circle" /><title>Delete</title></svg>
+        </button>
       </span><!--/.attachment-->
     </div><!--/.attachments-box-->
 

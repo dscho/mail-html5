@@ -15,10 +15,12 @@
             font-size: $font-size-bigger;
             margin: 0;
             cursor: pointer;
-            &:before {
-                color: $color-blue;
-                font-size: $font-size-smaller;
-                margin-right: 0.5em;
+            svg {
+                display: inline-block;
+                fill: $color-blue;
+                vertical-align: baseline;
+                height: 0.8em;
+                width: 0.8em;
 
                 @include respond-to(desktop) {
                     display: none;
@@ -74,17 +76,19 @@
                 border-radius: 16px;
                 vertical-align: middle;
                 margin: 5px 0 5px 5px;
-                padding: 5px 10px 5px 10px;
+                padding: 5px 10px;
                 border: 1px;
                 border-style: solid;
                 border-color: $color-grey-lighter;
                 display: inline-block;
                 @include text-overflow;
 
-                span {
-                    font-size: 14px;
-                    color: $color-grey-input;
-                    vertical-align: middle;
+                svg {
+                    display: inline-block;
+                    height: 0.8em;
+                    width: 0.8em;
+                    fill: $color-grey-input;
+                    vertical-align: baseline;
                 }
 
                 &:hover,
@@ -184,11 +188,12 @@
             transition: background-color 0.3s;
             text-align: left;
 
-            &:before {
+            svg {
                 display: inline-block;
-                width: 2.5em;
-                text-align: center;
+                width: 2em;
+                height: 1em;
                 vertical-align: middle;
+                fill: $color-blue;
             }
             &:hover,
             &:focus {

@@ -53,10 +53,12 @@
 
         .encrypted {
             position: absolute;
-            color: $color-grey-medium;
-            line-height: 30px;
+            fill: $color-grey-medium;
+            width: 1em;
+            height: 1em;
             top: $padding-vertical;
             right: $padding-vertical;
+            margin-top: 0.3em;
         }
 
         p {
@@ -94,7 +96,6 @@
             list-style: none;
             margin: 0.8em 0 0;
             padding: 0;
-            color: $color-grey-medium;
             width: 30px;
             line-height: 1.6em;
             & > li {
@@ -110,6 +111,13 @@
                         border-radius: 50%;
                         background-color: $color-blue;
                     }
+                }
+                svg {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 1em;
+                    height: 1em;
+                    fill: $color-grey-medium;
                 }
             }
         }
@@ -134,7 +142,7 @@
                 color: $color-white;
             }
             .encrypted {
-                color: $color-white;
+                fill: $color-white;
             }
             .head {
                 .subject {
@@ -155,6 +163,9 @@
                         &:after {
                             background-color: $color-white;
                         }
+                    }
+                    svg {
+                        fill: $color-white;
                     }
                 }
             }

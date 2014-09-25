@@ -1,7 +1,9 @@
 <div class="lightbox-body" ng-controller="DialogCtrl">
   <header>
     <h2>{{state.dialog.title}}</h2>
-    <button class="close" wo-touch="confirm(false)" data-action="lightbox-close">&#xe007;</button>
+    <button class="close" wo-touch="confirm(false)" data-action="lightbox-close">
+      <svg><use xlink:href="#icon-close" /><title>Close</title></svg>
+    </button>
   </header>
 
   <div class="content">
