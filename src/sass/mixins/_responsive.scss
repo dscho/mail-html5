@@ -5,7 +5,7 @@ $mediaqueries: (
     md:                  "(min-width: #{$screen-md-min})",
     md-only:             "(min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})",
     lg:                  "(min-width: #{$screen-lg-min})",
-    sm-and-md-only:      "(max-width: #{$screen-md-max})"
+    not-lg:              "(max-width: #{$screen-md-max})"
 );
 
 // Central Media Query Mixin

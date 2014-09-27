@@ -9,6 +9,7 @@
 // Mixins
 
 @import "mixins/responsive";
+@import "mixins/scrollbar";
 
 // Bootstrap
 @import "base/fonts";
@@ -26,7 +27,7 @@
 @import "components/input";
 @import "components/mail-addresses";
 @import "components/spinner";
-@import "components/scrollbars";
+//@import "components/scrollbars";
 @import "components/tags-input";
 
 // Views
@@ -43,3 +44,9 @@
 @import "views/read";
 @import "views/write";
 @import "views/login";
+
+// Blocks
+// (BEM-like Naming, see http://cssguidelin.es/#bem-like-naming)
+
+@import "blocks/layout/app";
+@import "blocks/layout/nav";

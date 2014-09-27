@@ -1,10 +1,10 @@
 // Typography
 // -------------------------------------------
 $font-size-base:                    16px;
-$font-size-small:                   scut-em(14);
-$font-size-smaller:                 scut-em(12);
-$font-size-big:                     scut-em(18);
-$font-size-bigger:                  scut-em(24);
+$font-size-small:                   14px;
+$font-size-smaller:                 12px;
+$font-size-big:                     18px;
+$font-size-bigger:                  22px;
 
 $font-family-base:                  "PT Sans", Arial, sans-serif;
 
@@ -26,6 +26,16 @@ $color-grey-lighter:                #ddd;
 $color-grey-lighterer:              #f0eff5;
 $color-grey-lightest:               #f9f9f9;
 $color-grey-dark-alpha:             rgba(0, 0, 0, 0.80);
+
+// Semantic Colors
+// -------------------------------------------
+
+$color-bg:                          $color-white;
+$color-text:                        $color-grey-dark;
+$color-text-light:                  $color-grey-medium;
+$color-main:                        $color-blue;
+$color-main-text:                   $color-white;
+$color-border-light:                $color-grey-lighter;
 
 // Breakpoints
 // -------------------------------------------

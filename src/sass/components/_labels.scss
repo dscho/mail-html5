@@ -5,7 +5,7 @@
     font-size: $label-font-size;
     text-align: center;
     vertical-align: middle;
-    border-radius: ($line-height-base * $label-font-size) + 2 * $label-padding-vertical;
+    border-radius: 1em;
     white-space: nowrap;
     background-color: $label-back-color;
     color: $label-color;
