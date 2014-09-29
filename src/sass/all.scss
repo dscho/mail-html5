@@ -16,15 +16,12 @@
 @import "base/scaffolding";
 
 // Components
-@import "components/labels";
 @import "components/lightbox";
 @import "components/dialog";
 @import "components/mail-list";
 @import "components/layout";
 @import "components/popover";
 @import "components/mail-addresses";
-@import "components/spinner";
-@import "components/tags-input";
 
 // Views
 @import "views/shared";
@@ -35,7 +32,6 @@
 @import "views/contacts";
 @import "views/about";
 @import "views/dialog";
-@import "views/navigation";
 @import "views/mail-list";
 @import "views/read";
 @import "views/write";
@@ -45,7 +41,10 @@
 // (BEM-like Naming, see http://cssguidelin.es/#bem-like-naming)
 
 @import "blocks/basics/buttons";
+@import "blocks/basics/labels";
 @import "blocks/basics/form";
+@import "blocks/basics/spinner";
+@import "blocks/basics/tags-input";
 @import "blocks/layout/app";
 @import "blocks/layout/nav";
 @import "blocks/layout/action-bar";

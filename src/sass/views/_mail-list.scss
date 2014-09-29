@@ -102,7 +102,7 @@
         flex-shrink: 0;
         position: relative;
         height: 28px;
-        padding: 0 $nav-padding;
+        padding: 0 $padding-horizontal;
         background: $color-white;
         width: 100%;
         font-size: $font-size-smaller;
@@ -114,8 +114,8 @@
             display: block;
             position: absolute;
             top: 0;
-            left: $nav-padding;
-            right: $nav-padding;
+            left: $padding-horizontal;
+            right: $padding-horizontal;
             height: 0;
             border-top: 1px solid $color-grey-medium;
         }
