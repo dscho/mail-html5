@@ -32,7 +32,7 @@
 @import "views/contacts";
 @import "views/about";
 @import "views/dialog";
-@import "views/mail-list";
+//@import "views/mail-list";
 @import "views/read";
 @import "views/write";
 @import "views/login";
@@ -49,3 +49,4 @@
 @import "blocks/layout/nav";
 @import "blocks/layout/action-bar";
 @import "blocks/layout/mail-list-wrapper";
+@import "blocks/views/mail-list";

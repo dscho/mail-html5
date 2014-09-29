@@ -1,0 +1,124 @@
+.mail-list {
+    $padding-horizontal: 15px;
+    $padding-vertical: 10px;
+    $footer-height: 30px;
+
+    // do not share any common styles between large and other screens
+    // because styling is very different
+
+    @include respond-to(not-lg) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: $color-bg;
+        color: $color-text;
+
+        & > header {
+            position: relative;
+            flex-shrink: 0;
+            padding: ($padding-vertical + 5px) $padding-horizontal;
+
+            .btn-navicon {
+                float: left;
+                margin-right: 0.5em;
+            }
+            h2 {
+                @include scut-truncate;
+                padding-top: 4px; // depends on height of .btn-navicon
+                margin-bottom: 10px;
+                padding-right: 50px; // depends on with of .btn-icon
+                color: $color-grey-dark;
+                font-size: $font-size-bigger;
+                font-weight: normal;
+            }
+            .btn-icon {
+                position: absolute;
+                top: $padding-vertical;
+                right: $padding-horizontal;
+                margin-top: -0.05em; // for perfect vertical alignment with headline
+            }
+        }
+
+        &--scroll-canvas {
+            flex-grow: 1;
+            padding: 0 $padding-horizontal;
+            overflow-y: scroll;
+            // allow scrolling on iOS
+            -webkit-overflow-scrolling: touch;
+            // put layer on GPU
+            transform: translateZ(0);
+
+            // hide scrollbar in webkit
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        & > footer {
+            flex-shrink: 0;
+            position: relative;
+            height: $footer-height;
+            padding: 0 $padding-horizontal;
+            background: $color-bg;
+            width: 100%;
+            font-size: $font-size-smaller;
+            color: $color-text;
+            line-height: $footer-height - 4px;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: $padding-horizontal;
+                right: $padding-horizontal;
+                height: 0;
+                border-top: 1px solid $color-grey-medium;
+            }
+
+            svg {
+                display: inline-block;
+                height: 1.5em;
+                width: 1.5em;
+                padding-right: 0.5em;
+                fill: $color-text;
+                vertical-align: middle;
+            }
+        }
+    }
+    @include respond-to(md) {
+        & > header {
+            padding: $padding-vertical $padding-horizontal;
+            h2 {
+                padding-right: 0;
+            }
+            .btn-icon {
+                display: none;
+            }
+        }
+    }
+
+    @include respond-to(lg) {
+        height: 100%;
+        background: $color-border-light;
+
+        & > header {
+            display: none;
+        }
+        & > footer {
+            display: none;
+        }
+        &__scroll-canvas {
+            height: 100%;
+            overflow-y: scroll;
+            // allow scrolling on iOS
+            -webkit-overflow-scrolling: touch;
+
+            // hide scrollbar in webkit
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+}

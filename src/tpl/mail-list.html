@@ -1,25 +1,25 @@
-<div class="view-mail-list" ng-controller="MailListCtrl">
-  <!-- nav controll and section headline -->
-  <header wo-touch="state.nav.toggle(true); $event.stopPropagation()">
-    <svg><use xlink:href="#icon-navicon" /><title>Toggle Navigation</title></svg>
-    <h2>{{state.nav.currentFolder.type}}</h2>
-  </header>
+<div class="mail-list" ng-controller="MailListCtrl">
 
-  <div class="compose" wo-touch="state.writer.write(); $event.stopPropagation()">
-    <button class="btn-icon" title="New mail">
+  <header>
+    <button class="btn-navicon" wo-touch="state.nav.toggle(true); $event.stopPropagation()">
+      <svg><use xlink:href="#icon-navicon" /><title>Toggle Navigation</title></svg>
+    </button>
+    <h2>{{state.nav.currentFolder.type}}</h2>
+
+    <button class="btn-icon" title="New mail" wo-touch="state.writer.write(); $event.stopPropagation()">
       <svg><use xlink:href="#icon-write" /><title>New mail</title></svg>
     </button>
-  </div>
 
-  <div class="search">
-    <svg><use xlink:href="#icon-search" /><title>Search</title></svg>
-    <input class="input-text" type="text" ng-model="searchText"
-      ng-change="displaySearchResults(searchText)"
-      placeholder="Search" focus-me="state.mailList.searching">
-  </div>
+    <div class="search">
+      <svg><use xlink:href="#icon-search" /><title>Search</title></svg>
+      <input class="input-text" type="text" ng-model="searchText"
+        ng-change="displaySearchResults(searchText)"
+        placeholder="Search" focus-me="state.mailList.searching">
+    </div>
+  </header>
 
-  <div class="list-wrapper" list-scroll="displayMessages">
-    <ul class="mail-list" infinite-scroll="displayMore()"
+  <div class="mail-list__scroll-canvas" list-scroll="displayMessages">
+    <ul class="foo-mail-list" infinite-scroll="displayMore()"
       infinite-scroll-distance="1" infinite-scroll-parent="true">
       <li ng-class="{'mail-list-active': email === state.mailList.selected}"
         wo-touch="select(email)"
@@ -42,16 +42,16 @@
           </li>
         </ul>
       </li>
-    </ul><!--/.mail-list-->
+    </ul>
   </div>
 
-  <footer ng-class="{syncing: account.loggingIn || account.busy || searching}">
-    <span class="spinner"></span>
-    <span class="text" ng-switch="false" fng-switch="account.online">
+  <footer>
+    <span class="spinner" ng-show="account.loggingIn || account.busy || searching"></span>
+    <span class="text" ng-switch="account.online">
       <span ng-switch-when="false">
         <svg><use xlink:href="#icon-offline" /></svg>
       </span>
       {{lastUpdateLbl}} {{lastUpdate | date:'shortTime'}}
     </span>
   </footer>
-</div><!--/.view-mail-list-->
+</div>

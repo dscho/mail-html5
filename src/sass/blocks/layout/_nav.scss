@@ -6,7 +6,7 @@
 
     min-height: 100%;
     position: relative;
-    padding: 10px $nav-padding-h $footer-height;
+    padding: 10px $nav-padding-h;
     background: $color-main;
     color: $color-main-text;
 
@@ -87,19 +87,13 @@
             }
         }
     }
-    footer {
-        position: absolute;
-        bottom: 0;
-        left: $nav-padding-h;
-        right: $nav-padding-h;
-        height: $footer-height;
-        border-top: 1px solid $color-main-text;
-        font-size: $font-size-smaller;
-        line-height: 30px;
+    & > footer {
+        display: none;
     }
 
     @include respond-to(lg) {
         padding-top: 27px; // magic number to valign logo with action bar
+        padding-bottom: $footer-height;
         background: $color-bg;
         color: $color-text;
 
@@ -151,9 +145,25 @@
                 }
             }
         }
-        footer {
-            border-top-color: $color-border-light;
+        & > footer {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: $nav-padding-h;
+            right: $nav-padding-h;
+            height: $footer-height;
+            border-top: 1px solid $color-border-light;
+            font-size: $font-size-smaller;
+            line-height: $footer-height - 4px;
             color: $color-text-light;
+            svg {
+                display: inline-block;
+                height: 1.5em;
+                width: 1.5em;
+                padding-right: 0.5em;
+                fill: $color-text-light;
+                vertical-align: middle;
+            }
         }
     }
 }
