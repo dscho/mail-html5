@@ -1,0 +1,41 @@
+.input-text {
+    background-color: white;
+    border: 1px solid $color-border-light;
+    color: $color-text-light;
+    font-size: $font-size-base;
+    padding: 0.3em 0.7em;
+    outline: none;
+    // ios
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+:invalid,
+.ng-invalid,
+.input-text-error {
+    border-color: $color-error;
+}
+
+.input-error-message {
+    margin: 5px 0;
+    padding: 0;
+    color: $color-error;
+    font-size: em(13);
+}
+
+.search {
+    position: relative;
+    width: 100%;
+    .input-text {
+        width: 100%;
+        padding-left: 1.8em;
+    }
+    svg {
+        position: absolute;
+        left: 0.7em;
+        fill: $color-grey-medium;
+        top: 0.5em;
+        height: 1em;
+        width: 1em;
+    }
+}

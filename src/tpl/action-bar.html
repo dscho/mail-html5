@@ -1,3 +1,24 @@
 <div class="action-bar">
-
+  <div class="action-bar__primary">
+    <button class="btn btn--light">Delete</button>
+    <button class="btn btn--light">Spam</button>
+    <button class="btn btn--light-dropdown">
+      <svg><use xlink:href="#icon-folder" /><title>Folder</title></svg>
+      <svg class="btn__dropdown" role="presentation"><use xlink:href="#icon-dropdown" /></svg>
+    </button>
+  </div>
+  <div class="action-bar__secondary">
+    <button class="btn btn--light-dropdown btn--active">
+      More
+      <svg class="btn__dropdown" role="presentation"><use xlink:href="#icon-dropdown" /></svg>
+    </button>
+  </div>
+  <div class="action-bar__search">
+    <div class="search">
+      <svg><use xlink:href="#icon-search" /><title>Search</title></svg>
+      <input class="input-text" type="text" ng-model="searchText"
+        ng-change="displaySearchResults(searchText)"
+        placeholder="Search" focus-me="state.mailList.searching">
+    </div>
+  </div>
 </div>
