@@ -35,6 +35,8 @@ $color-text:                        $color-grey-dark;
 $color-text-light:                  $color-grey-medium;
 $color-main:                        $color-blue;
 $color-main-text:                   $color-white;
+$color-error:                       $color-red;
+$color-error-text:                  $color-white;
 $color-border-light:                $color-grey-lighter;
 
 // Breakpoints
@@ -59,8 +61,6 @@ $time-li-fade:                      0.15s;
 // Components
 // -------------------------------------------
 
-$scrollbar-width:                   10px;
-
 $nav-max-width:                     347px;
 $nav-width:                         80%;
 $nav-padding:                       15px;
@@ -69,18 +69,6 @@ $lightbox-padding:                  15px;
 $lightbox-max-width:                662px;
 $lightbox-width:                    90%;
 $lightbox-min-height:               644px;
-
-$btn-back-color:                    $color-blue;
-$btn-color:                         #fff;
-$btn-shadow-color:                  $color-grey-light;
-$btn-font-size:                     $font-size-big;
-$btn-padding-horizontal:            0.7em;
-$btn-padding-vertical:              0.5em;
-$btn-disabled-back-color:           $color-grey-lighter;
-$btn-disabled-color:                #fff;
-
-$btn-icon-color:                    $color-blue;
-$btn-icon-disabled-color:           $color-grey;
 
 $label-back-color:                  $color-blue;
 $label-color:                       #fff;

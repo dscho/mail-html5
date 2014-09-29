@@ -67,7 +67,7 @@
     <textarea ng-model="body" spellcheck="true" focus-me="state.lightbox === 'write' && writerTitle === 'Reply'" tabindex="3"></textarea>
 
     <div class="send-control">
-      <button wo-touch="sendToOutbox()" class="btn" ng-class="{'btn-primary': sendBtnSecure === false}" ng-disabled="!okToSend" tabindex="4">{{sendBtnText || 'Send'}}</button>
+      <button wo-touch="sendToOutbox()" class="btn" ng-class="{'btn--invalid': sendBtnSecure === false}" ng-disabled="!okToSend" tabindex="4">{{sendBtnText || 'Send'}}</button>
     </div>
 
   </div><!--/.content-->

@@ -2,6 +2,7 @@
 // Custom scrollbars in webkit
 // @see http://css-tricks.com/custom-scrollbars-in-webkit/
 
+$scrollbar-width: 10px;
 $scrollbar-themes: (
     base: (
         thumb:          $color-border-light,

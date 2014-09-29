@@ -16,7 +16,6 @@
 @import "base/scaffolding";
 
 // Components
-@import "components/buttons";
 @import "components/labels";
 @import "components/lightbox";
 @import "components/nav";
@@ -27,7 +26,6 @@
 @import "components/input";
 @import "components/mail-addresses";
 @import "components/spinner";
-//@import "components/scrollbars";
 @import "components/tags-input";
 
 // Views
@@ -48,5 +46,6 @@
 // Blocks
 // (BEM-like Naming, see http://cssguidelin.es/#bem-like-naming)
 
+@import "blocks/basics/buttons";
 @import "blocks/layout/app";
 @import "blocks/layout/nav";
