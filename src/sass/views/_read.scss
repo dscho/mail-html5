@@ -14,7 +14,9 @@
         .subject {
             font-size: $font-size-bigger;
             margin: 0;
-            cursor: pointer;
+            @include respond-to(not-md) {
+                cursor: pointer;
+            }
             svg {
                 display: inline-block;
                 fill: $color-blue;
@@ -22,7 +24,7 @@
                 height: 0.8em;
                 width: 0.8em;
 
-                @include respond-to(md) {
+                @include respond-to(md-only) {
                     display: none;
                 }
             }
