@@ -3,10 +3,10 @@
   <div class="app__container" ng-click="state.nav.toggle(false)">
     <header class="app__header" ng-include="'tpl/action-bar.html'"></header>
     <main class="app__main">
-      <section class="content main-content" ng-class="{'shift-right': state.read.open}">
-        <div class="column column-left" ng-include="'tpl/mail-list.html'"></div>
-        <div class="column" ng-include="'tpl/read.html'"></div>
-      </section>
+      <div class="mail-list-wrapper" ng-class="{'mail-list-wrapper--show-aside': !state.read.open}">
+        <aside class="mail-list-wrapper__aside" ng-include="'tpl/mail-list.html'"></aside>
+        <div class="mail-list-wrapper__container" ng-include="'tpl/read.html'"></div>
+      </div>
     </main>
   </div>
 </div>
