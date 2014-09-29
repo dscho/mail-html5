@@ -35,7 +35,7 @@
         <input class="input-text" type="text" ng-model="realname" placeholder="Full name (optional)"></input>
         <div class="flex">
           <input class="input-text" ng-model="pass" required type="password" placeholder="Password" pattern=".{3,30}">
-          <input class="input-text right" ng-model="confirmPass" required type="password" placeholder="Confirm password" ng-class="{'input-text-error': (pass || confirmPass) && pass !== confirmPass}">
+          <input class="input-text right" ng-model="confirmPass" required type="password" placeholder="Confirm password" ng-class="{'input-text--error': (pass || confirmPass) && pass !== confirmPass}">
         </div>
         <input class="input-text"  type="tel" ng-model="phone" required placeholder="Mobile phone number (e.g. +49 170 1234567)"/>
         <input class="input-text" type="text" class="input-text" ng-model="betaCode" required placeholder="Beta access code">
