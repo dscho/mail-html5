@@ -97,4 +97,16 @@
             }
         }
     }
+
+    // Animation
+    @include respond-to(not-lg) {
+        .app__aside {
+            will-change: transform;
+            transition: transform 0.15s ease-out;
+        }
+        .app__container {
+            will-change: transform;
+            transition: transform 0.15s ease-out;
+        }
+    }
 }
