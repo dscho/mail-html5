@@ -18,9 +18,7 @@
 // Components
 @import "components/lightbox";
 @import "components/dialog";
-@import "components/layout";
 @import "components/popover";
-@import "components/mail-addresses";
 
 // Views
 @import "views/shared";
@@ -31,7 +29,6 @@
 @import "views/contacts";
 @import "views/about";
 @import "views/dialog";
-@import "views/read";
 @import "views/write";
 @import "views/login";
 
@@ -43,8 +40,10 @@
 @import "blocks/basics/form";
 @import "blocks/basics/spinner";
 @import "blocks/basics/tags-input";
+@import "blocks/basics/mail-addresses";
 @import "blocks/layout/app";
 @import "blocks/layout/nav";
 @import "blocks/layout/action-bar";
 @import "blocks/layout/mail-list-wrapper";
 @import "blocks/views/mail-list";
+@import "blocks/views/read";

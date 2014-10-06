@@ -1,0 +1,13 @@
+.mail-addresses {
+    margin-bottom: 0.4em;
+
+    & > label {
+        display: inline-block;
+        width: 2.75em;
+        color: $color-text-light;
+    }
+    .label {
+        margin-right: 0.2em;
+        margin-bottom: 0.2em;
+    }
+}
