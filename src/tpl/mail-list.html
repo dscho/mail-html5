@@ -19,28 +19,39 @@
   </header>
 
   <div class="mail-list__scroll-canvas" list-scroll="displayMessages">
-    <ul class="foo-mail-list" infinite-scroll="displayMore()"
+    <ul class="mail-list__entries" infinite-scroll="displayMore()"
       infinite-scroll-distance="1" infinite-scroll-parent="true">
-      <li ng-class="{'mail-list-active': email === state.mailList.selected}"
+      <li class="mail-list-entry"
+        ng-class="{'mail-list-entry--active': email === state.mailList.selected, 'mail-list-entry--unread': email.unread, 'mail-list-entry--attachment': email.attachments !== undefined && email.attachments.length > 0}"
         wo-touch="select(email)"
         ng-repeat="email in displayMessages">
-        <h3>{{email.from[0].name || email.from[0].address}}</h3>
-        <svg class="encrypted" ng-show="email.encrypted && !email.decrypted"><use xlink:href="#icon-encrypted" /><title>Encrypted</title></svg>
-        <svg class="encrypted" ng-show="email.encrypted && email.decrypted"><use xlink:href="#icon-decrypted" /><title>Decrypted</title></svg>
-        <div class="head">
-          <p class="subject">{{email.subject || 'No subject'}}</p>
-          <time>{{email.sentDate | date:'mediumDate'}}</time>
-        </div>
-        <p class="body">{{email.body ? email.body.substr(0, 200) : ''}}</p>
-        <ul class="flags">
-          <li ng-show="email.unread"></li>
-          <li ng-show="!email.unread && email.answered">
+        <ul class="mail-list-entry__flags">
+          <li class="mail-list-entry__flags-unread"></li>
+          <li class="mail-list-entry__flags-checked">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span><svg role="presentation"><use xlink:href="#icon-check" /></svg></span>
+            </label>
+          </li>
+          <li class="mail-list-entry__flags-favorite">
+            <svg ng-show="false"><use xlink:href="#icon-star_filled" /><title>Favorited</title></svg>
+            <svg><use xlink:href="#icon-star" /><title>Favorite</title></svg>
+          </li>
+          <li class="mail-list-entry__flags-encrypted">
+            <svg ng-show="email.encrypted && !email.decrypted"><use xlink:href="#icon-encrypted" /><title>Encrypted</title></svg>
+            <svg ng-show="email.encrypted && email.decrypted"><use xlink:href="#icon-decrypted" /><title>Decrypted</title></svg>
+          </li>
+          <li class="mail-list-entry__flags-answered" ng-show="!email.unread && email.answered">
             <svg><use xlink:href="#icon-reply" /><title>Answered</title></svg>
           </li>
-          <li ng-show="email.attachments !== undefined && email.attachments.length > 0">
-            <svg><use xlink:href="#icon-attachment" /><title>Attachments</title></svg>
-          </li>
         </ul>
+        <h3 class="mail-list-entry__name">{{email.from[0].name || email.from[0].address}}</h3>
+        <div class="mail-list-entry__subject">{{email.subject || 'No subject'}}</div>
+        <div class="mail-list-entry__attachment">
+          <svg><use xlink:href="#icon-attachment" /><title>Attachments</title></svg>
+        </div>
+        <time class="mail-list-entry__time">{{email.sentDate | date:'mediumDate'}}</time>
+        <div class="mail-list-entry__excerpt">{{email.body ? email.body.substr(0, 200) : ''}}</div>
       </li>
     </ul>
   </div>
