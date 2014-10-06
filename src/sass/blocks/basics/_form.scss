@@ -1,13 +1,17 @@
 .input-text {
     background-color: white;
     border: 1px solid $color-border-light;
-    color: $color-text-light;
+    color: $color-text;
     font-size: $font-size-base;
     padding: 0.3em 0.7em;
     outline: none;
     // ios
     border-radius: 0;
     -webkit-appearance: none;
+
+    &::placeholder {
+        color: $color-text-light;
+    }
 
     &:invalid,
     &.ng-invalid,
@@ -33,7 +37,7 @@
     & > svg {
         position: absolute;
         left: 0.7em;
-        fill: $color-grey-medium;
+        fill: $color-text-light;
         top: 0.5em;
         height: 1em;
         width: 1em;

@@ -15,12 +15,12 @@
 @import "base/fonts";
 @import "base/scaffolding";
 
-// Components
+// Components (TODO: refactor to BEM)
 @import "components/lightbox";
 @import "components/dialog";
 @import "components/popover";
 
-// Views
+// Views (TODO: refactor to BEM)
 @import "views/shared";
 @import "views/add-account";
 @import "views/account";
@@ -29,7 +29,6 @@
 @import "views/contacts";
 @import "views/about";
 @import "views/dialog";
-@import "views/write";
 @import "views/login";
 
 // Blocks
@@ -41,9 +40,11 @@
 @import "blocks/basics/spinner";
 @import "blocks/basics/tags-input";
 @import "blocks/basics/mail-addresses";
+@import "blocks/basics/attachments";
 @import "blocks/layout/app";
 @import "blocks/layout/nav";
 @import "blocks/layout/action-bar";
 @import "blocks/layout/mail-list-wrapper";
 @import "blocks/views/mail-list";
 @import "blocks/views/read";
+@import "blocks/views/write";

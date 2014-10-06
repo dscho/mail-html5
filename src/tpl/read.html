@@ -53,15 +53,14 @@
       </span>
     </div>
 
-    <div class="attachments" ng-show="state.mailList.selected.attachments !== undefined && state.mailList.selected.attachments.length > 0">
-      <span class="attachment"
-        ng-repeat="attachment in state.mailList.selected.attachments"
+    <ul class="attachments" ng-show="state.mailList.selected.attachments !== undefined && state.mailList.selected.attachments.length > 0">
+      <li ng-repeat="attachment in state.mailList.selected.attachments"
         wo-touch="download(attachment)">
         <span ng-if="attachment.busy" class="spinner"></span>
         <svg ng-hide="attachment.busy"><use xlink:href="#icon-attachment" /></svg>
         {{attachment.filename}}
-      </span>
-    </div>
+      </li>
+    </ul>
   </header>
 
   <!-- working spinner -->

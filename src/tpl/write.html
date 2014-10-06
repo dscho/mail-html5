@@ -5,15 +5,15 @@
       <svg><use xlink:href="#icon-close" /><title>Close</title></svg>
     </button>
   </header>
-  <div class="content view-write">
+  <div class="content write">
 
-    <div class="mail-addresses">
-      <div class="mail-addresses-more">
-        <button wo-touch="showCC = true;" ng-hide="showCC">Cc</button>
-        <button wo-touch="showBCC = true;" ng-hide="showBCC">Bcc</button>
-      </div>
-      <p focus-input="state.lightbox === 'write' && writerTitle !== 'Reply'"
+    <header class="write__header">
+      <div class="mail-addresses" focus-input="state.lightbox === 'write' && writerTitle !== 'Reply'"
          focus-input-on-click>
+        <div class="mail-addresses__more">
+          <button wo-touch="showCC = true;" ng-hide="showCC">Cc</button>
+          <button wo-touch="showBCC = true;" ng-hide="showBCC">Bcc</button>
+        </div>
         <label>To:</label>
         <tags-input class="tags-input" ng-model="to" type="email" tabindex="1" add-on-space="true" add-on-enter="true" enable-editing-last-tag="true"
           tag-style="tagStyle" display-property="address" on-tag-added="verify($tag)" on-tag-removed="checkSendStatus()"
@@ -21,8 +21,8 @@
           placeholder="add recipient">
           <auto-complete source="lookupAddressBook($query)" min-length="1"></auto-complete>
         </tags-input>
-      </p>
-      <p ng-show="showCC === true"
+      </div>
+      <div class="mail-addresses" ng-show="showCC === true"
          focus-input="state.lightbox === 'write' && writerTitle !== 'Reply'"
          focus-input-on-click>
         <label>Cc:</label>
@@ -32,8 +32,8 @@
           placeholder="add cc">
           <auto-complete source="lookupAddressBook($query)" min-length="1"></auto-complete>
         </tags-input>
-      </p>
-      <p ng-show="showBCC === true"
+      </div>
+      <div class="mail-addresses" ng-show="showBCC === true"
          focus-input="state.lightbox === 'write' && writerTitle !== 'Reply'"
          focus-input-on-click>
         <label>Bcc:</label>
@@ -43,30 +43,30 @@
           placeholder="add bcc">
           <auto-complete source="lookupAddressBook($query)" min-length="1"></auto-complete>
         </tags-input>
-      </p>
-    </div><!--/.mail-addresses-->
+      </div>
 
-    <div class="subject-box">
-      <input class="input-text" ng-model="subject" spellcheck="true" tabindex="2" placeholder="Subject" ng-change="updatePreview()">
-      <input id="attachment-input" type="file" multiple attachment-input>
-      <button class="btn btn-attachment" ng-class="{'btn--invalid': sendBtnSecure === false}" attachment-btn>
-        <svg><use xlink:href="#icon-attachment" /><title>Add attachment</title></svg>
-      </button>
-    </div><!--/.subject-box-->
-
-    <div class="attachments-box" ng-show="attachments.length > 0">
-      <span ng-repeat="attachment in attachments" class="attachment">
-        <svg><use xlink:href="#icon-attachment" /></svg>
-        {{attachment.filename}}
-        <button class="attachment-delete" wo-touch="remove(attachment)">
-          <svg><use xlink:href="#icon-close_circle" /><title>Delete</title></svg>
+      <div class="write__subject">
+        <input class="input-text" ng-model="subject" spellcheck="true" tabindex="2" placeholder="Subject" ng-change="updatePreview()">
+        <input id="attachment-input" type="file" multiple attachment-input>
+        <button class="btn" ng-class="{'btn--invalid': sendBtnSecure === false}" attachment-btn>
+          <svg><use xlink:href="#icon-attachment" /><title>Add attachment</title></svg>
         </button>
-      </span><!--/.attachment-->
-    </div><!--/.attachments-box-->
+      </div>
 
-    <textarea ng-model="body" spellcheck="true" focus-me="state.lightbox === 'write' && writerTitle === 'Reply'" tabindex="3"></textarea>
+      <ul class="attachments" ng-show="attachments.length > 0">
+        <li ng-repeat="attachment in attachments">
+          <svg><use xlink:href="#icon-attachment" /></svg>
+          {{attachment.filename}}
+          <button class="attachments__delete" wo-touch="remove(attachment)">
+            <svg><use xlink:href="#icon-close_circle" /><title>Delete</title></svg>
+          </button>
+        </li>
+      </ul>
+    </header>
 
-    <div class="send-control">
+    <textarea class="write__body" ng-model="body" spellcheck="true" focus-me="state.lightbox === 'write' && writerTitle === 'Reply'" tabindex="3"></textarea>
+
+    <div class="write__submit">
       <button wo-touch="sendToOutbox()" class="btn" ng-class="{'btn--invalid': sendBtnSecure === false}" ng-disabled="!okToSend" tabindex="4">{{sendBtnText || 'Send'}}</button>
     </div>
 

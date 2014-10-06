@@ -14,6 +14,10 @@
     &__header {
         flex-shrink: 0;
         margin-bottom: 1em;
+
+        & > .attachments {
+            margin-top: 1em;
+        }
     }
     &__controls,
     &__controls-lg {
@@ -60,39 +64,6 @@
         color: $color-text-light;
         font-size: $font-size-small;
         margin-bottom: 1em;
-    }
-    // TODO: refactor attachments into their own module
-    .attachments {
-        border: 1px solid $color-border-light;
-        margin-top: 1em;
-        padding: 5px;
-
-        .attachment {
-            display: inline-block;
-            height: 2em;
-            border-radius: 0.5 * 2em;
-            vertical-align: middle;
-            margin-left: 5px;
-            padding: 5px 10px;
-            border: 1px solid $color-border-light;
-            cursor: pointer;
-
-            &:first-child {
-                margin-left: 0;
-            }
-            & > svg {
-                display: inline-block;
-                height: 0.8em;
-                width: 0.8em;
-                fill: $color-text-light;
-                vertical-align: baseline;
-            }
-
-            &:hover,
-            &:focus {
-                background-color: darken($color-bg, 5%);
-            }
-        }
     }
 
     // Content components
