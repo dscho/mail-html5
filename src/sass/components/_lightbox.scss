@@ -28,10 +28,11 @@
             max-height: $lightbox-min-height;
         }
 
-        header {
+        & > header {
             flex-shrink: 0;
             text-align: center;
             position: relative;
+            margin-bottom: 10px;
             button.close {
                 position: absolute;
                 top: 0px;
@@ -64,7 +65,7 @@
                 color: $color-grey-dark;
             }
         }
-        .content {
+        & > .content {
             flex-grow: 1;
             overflow: hidden;
         }
