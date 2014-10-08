@@ -28,7 +28,7 @@
     <div class="mail-addresses">
       <label>From:</label>
       <span ng-repeat="u in state.mailList.selected.from">
-        <span class="label" ng-class="{'label--invalid': u.secure === false, 'label--invalid-clickable': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">
+        <span class="label" ng-class="{'label--invalid': u.secure === false, 'label--invalid-clickable': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" wo-tooltip="#fingerprint-info">
           {{u.name || u.address}}
           <svg ng-show="u.secure === false"><use xlink:href="#icon-add_contact" /></svg>
         </span>
@@ -37,7 +37,7 @@
     <div class="mail-addresses">
       <label>To:</label>
       <span ng-repeat="u in state.mailList.selected.to">
-        <span class="label" ng-class="{'label--invalid': u.secure === false, 'label--invalid-clickable': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">
+        <span class="label" ng-class="{'label--invalid': u.secure === false, 'label--invalid-clickable': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" wo-tooltip="#fingerprint-info">
           {{u.name || u.address}}
           <svg ng-show="u.secure === false"><use xlink:href="#icon-add_contact" /></svg>
         </span>
@@ -46,7 +46,7 @@
     <div class="mail-addresses" ng-show="state.mailList.selected.cc && state.mailList.selected.cc.length > 0">
       <label>Cc:</label>
       <span ng-repeat="u in state.mailList.selected.cc">
-        <span class="label" ng-class="{'label--invalid': u.secure === false, 'label--invalid-clickable': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" popover="#fingerprint-info">
+        <span class="label" ng-class="{'label--invalid': u.secure === false, 'label--invalid-clickable': u.secure === false}" ng-mouseover="getKeyId(u.address)" wo-touch="invite(u)" wo-tooltip="#fingerprint-info">
           {{u.name || u.address}}
           <svg ng-show="u.secure === false"><use xlink:href="#icon-add_contact" /></svg>
         </span>
@@ -89,10 +89,10 @@
     </iframe>
   </div>
 
-  <!-- popovers -->
-  <div id="fingerprint-info" class="popover right" ng-controller="PopoverCtrl">
-    <div class="arrow"></div>
-    <div class="popover-content">{{keyId}}</div>
+  <!-- tooltips -->
+  <div id="fingerprint-info" class="tooltip">
+    <div class="tooltip__arrow"></div>
+    <div class="tooltip__content">{{keyId}}</div>
   </div>
 
   <div class="reply-selection popover bottom">

@@ -29,7 +29,7 @@
               <th>Size</th>
             </tr>
             <tr ng-repeat="key in keys | orderBy:'userId' | filter:searchText">
-              <td class="hover" ng-mouseover="getFingerprint(key)" popover="#fingerprint-contact">{{key._id.slice(8)}}</td>
+              <td class="hover" ng-mouseover="getFingerprint(key)" wo-tooltip="#fingerprint-contact">{{key._id.slice(8)}}</td>
               <td>{{key.userId}}</td>
               <td>{{key.created | date:'mediumDate'}}</td>
               <td>{{key.bitSize}} bit</td>
@@ -38,11 +38,11 @@
           </table>
         </div><!--/.key-list-scroll-->
 
-        <!-- popovers -->
-        <div id="fingerprint-contact" class="popover right" ng-controller="PopoverCtrl">
-          <div class="popover-title"><b>Fingerprint</b></div>
-          <div class="popover-content">{{fingerprint}}</div>
-        </div><!--/.popover-->
+        <!-- tooltips -->
+        <div id="fingerprint-contact" class="tooltip">
+          <div class="tooltip__title">Fingerprint</div>
+          <div class="tooltip__content">{{fingerprint}}</div>
+        </div><!--/.tooltip-->
       </div><!--/.key-list-->
 
     </div><!-- /.view-contacts -->

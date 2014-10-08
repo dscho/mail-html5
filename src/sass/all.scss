@@ -15,6 +15,10 @@
 @import "base/fonts";
 @import "base/scaffolding";
 
+// Utilities classes
+
+@import "mixins/responsive";
+
 // Components (TODO: refactor to BEM)
 @import "components/lightbox";
 @import "components/dialog";
@@ -41,6 +45,7 @@
 @import "blocks/basics/tags-input";
 @import "blocks/basics/mail-addresses";
 @import "blocks/basics/attachments";
+@import "blocks/basics/tooltip";
 @import "blocks/layout/app";
 @import "blocks/layout/nav";
 @import "blocks/layout/action-bar";
