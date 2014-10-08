@@ -374,7 +374,7 @@
             width: 1em;
             & > svg {
                 visibility: hidden; // hidden in default state
-                display: block;
+                display: inline-block;
                 vertical-align: middle;
                 width: 1em;
                 height: 1em;
