@@ -6,7 +6,7 @@
       <button wo-touch="state.mailList.remove(state.mailList.selected)" class="btn-icon" title="Delete mail">
         <svg><use xlink:href="#icon-delete" /><title>Delete mail</title></svg>
       </button>
-      <button class="btn-icon" title="Reply to" reply-selection>
+      <button class="btn-icon" title="Reply to" wo-dropdown="#reply-selection" wo-dropdown-position="center">
         <svg><use xlink:href="#icon-reply" /><title>Reply to</title></svg>
       </button>
       <button wo-touch="state.writer.write()" class="btn-icon" title="New mail">
@@ -95,13 +95,11 @@
     <div class="tooltip__content">{{keyId}}</div>
   </div>
 
-  <div class="reply-selection popover bottom">
-    <div class="arrow"></div>
-    <ul class="popover-content">
-      <li><button wo-touch="state.writer.write(state.mailList.selected)"><svg><use xlink:href="#icon-reply_light" /></svg> Reply</button></li>
-      <li><button wo-touch="state.writer.write(state.mailList.selected, true)"><svg><use xlink:href="#icon-reply_all_light" /></svg> Reply All</button></li>
-      <li><button wo-touch="state.writer.write(state.mailList.selected, null, true)"><svg><use xlink:href="#icon-forward_light" /></svg> Forward</button></li>
-    </ul>
-  </div>
+  <!-- dropdowns -->
+  <ul id="reply-selection" class="dropdown">
+    <li><button wo-touch="state.writer.write(state.mailList.selected)"><svg><use xlink:href="#icon-reply_light" /></svg> Reply</button></li>
+    <li><button wo-touch="state.writer.write(state.mailList.selected, true)"><svg><use xlink:href="#icon-reply_all_light" /></svg> Reply All</button></li>
+    <li><button wo-touch="state.writer.write(state.mailList.selected, null, true)"><svg><use xlink:href="#icon-forward_light" /></svg> Forward</button></li>
+  </ul>
 
 </div>

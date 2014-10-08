@@ -22,7 +22,6 @@
 // Components (TODO: refactor to BEM)
 @import "components/lightbox";
 @import "components/dialog";
-@import "components/popover";
 
 // Views (TODO: refactor to BEM)
 @import "views/shared";
@@ -46,6 +45,7 @@
 @import "blocks/basics/mail-addresses";
 @import "blocks/basics/attachments";
 @import "blocks/basics/tooltip";
+@import "blocks/basics/dropdown";
 @import "blocks/layout/app";
 @import "blocks/layout/nav";
 @import "blocks/layout/action-bar";

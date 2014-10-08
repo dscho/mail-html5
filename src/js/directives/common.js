@@ -49,26 +49,83 @@ define(function(require) {
                 $timeout(function() {
                     tooltip.addClass('tooltip--show');
                 });
-
-                /*var top = elm[0].offsetTop;
-                var left = elm[0].offsetLeft;
-                var width = elm[0].offsetWidth;
-                var height = elm[0].offsetHeight;
-
-                tooltip[0].style.transition = 'opacity 0.3s linear';
-                tooltip[0].style.top = (top + height / 2 - tooltip[0].offsetHeight / 2) + 'px';
-                tooltip[0].style.left = (left + width) + 'px';
-                tooltip[0].style.opacity = '1';*/
             });
 
             elm.on('mouseout', function() {
                 tooltip.removeClass('tooltip--show');
                 tooltip[0].style.top = '-9999px';
                 tooltip[0].style.left = '-9999px';
-                /*tooltip[0].style.transition = 'opacity 0.3s linear, top 0.3s step-end, left 0.3s step-end';
-                tooltip[0].style.opacity = '0';
-                tooltip[0].style.top = '-9999px';
-                tooltip[0].style.left = '-9999px';*/
+            });
+        };
+    });
+
+    ngModule.directive('woDropdown', function($document, $timeout) {
+        return function(scope, elm, attrs) {
+            var selector = attrs.woDropdown;
+            var position = attrs.woDropdownPosition;
+            var dropdown = $document.find(selector);
+
+            function appear() {
+                // Compute dropdown position
+                var offsetElm = elm.offset();
+                var offsetDropdownParent = dropdown.offsetParent().offset();
+
+                // Set dropdown position
+                dropdown[0].style.top = (offsetElm.top - offsetDropdownParent.top +
+                    elm[0].offsetHeight) + 'px';
+                switch(position) {
+                case 'center':
+                    dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left +
+                        elm[0].offsetWidth / 2 - dropdown[0].offsetWidth / 2) + 'px';
+                    break;
+                case 'right':
+                    dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left +
+                        elm[0].offsetWidth - dropdown[0].offsetWidth) + 'px';
+                    break;
+                default:
+                    dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left) + 'px';
+                }
+
+                // Wait till browser repaint
+                $timeout(function() {
+                    dropdown.addClass('dropdown--show');
+                });
+
+                // class on element to change style if drowdown is visible
+                elm.addClass('wo-dropdown-active');
+            }
+
+            function disappear() {
+                dropdown.removeClass('dropdown--show');
+                dropdown[0].style.top = '-9999px';
+                dropdown[0].style.left = '-9999px';
+
+                elm.removeClass('wo-dropdown-active');
+            }
+
+            function toggle() {
+                if(dropdown.hasClass('dropdown--show')) {
+                    disappear();
+                }
+                else {
+                    appear();
+                }
+            }
+
+            elm.on('touchstart click', toggle);
+
+            // close if user clicks outside of dropdown and elm
+            $document.on('touchstart.woDropdown click.woDropdown', function(e) {
+                var t = angular.element(e.target);
+                if(!t.closest(dropdown).length &&
+                    !t.closest(elm).length) {
+                    disappear();
+                }
+            });
+
+            // remove event listener on document
+            scope.$on('$destroy', function() {
+                $document.off('touchstart.woDropdown click.woDropdown');
             });
         };
     });

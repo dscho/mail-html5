@@ -15,7 +15,6 @@ if (typeof window.applicationCache !== 'undefined') {
 }
 
 var DialogCtrl = require('./controller/dialog'),
-    PopoverCtrl = require('./controller/popover'),
     AddAccountCtrl = require('./controller/add-account'),
     AccountCtrl = require('./controller/account'),
     SetPassphraseCtrl = require('./controller/set-passphrase'),
@@ -115,4 +114,3 @@ app.controller('PrivateKeyUploadCtrl', PrivateKeyUploadCtrl);
 app.controller('ContactsCtrl', ContactsCtrl);
 app.controller('AboutCtrl', AboutCtrl);
 app.controller('DialogCtrl', DialogCtrl);
-app.controller('PopoverCtrl', PopoverCtrl);
