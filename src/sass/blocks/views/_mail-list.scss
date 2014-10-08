@@ -128,6 +128,7 @@
         }
         &__entries {
             display: table; // import for mail list entry desktop layout
+            table-layout: fixed;
             width: 100%;
             list-style: none;
             margin: 0;
@@ -314,7 +315,6 @@
         $cell-padding-horizontal:       10px;
 
         display: table-row;
-        table-layout: fixed;
         background: mix($color-bg, $color-border-light, 70%);
         color: $color-grey;
         cursor: pointer;
@@ -400,7 +400,7 @@
             display: table-cell;
             border-bottom: 1px solid $color-border-light;
             padding: $cell-padding-vertical $cell-padding-horizontal;
-            width: 1px; // hack to make column as small as possible
+            width: 8em; // make room for time
             text-align: right;
             white-space: nowrap;
         }
