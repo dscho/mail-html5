@@ -32,12 +32,15 @@
         }
     }
     &__folder {
+        position: relative;
         font-size: $font-size-bigger;
         margin-bottom: 10px;
+        padding-right: 40px;
         &:last-child {
             margin-bottom: 0;
         }
         a {
+            @include scut-truncate;
             display: block;
             color: $color-white;
             text-decoration: none;
@@ -56,6 +59,21 @@
         &--open {
             font-weight: bold;
         }
+    }
+    &__counter {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0.2em;
+        width: 2.2em;
+        height: 1.5em;
+        line-height: 1.5em;
+        border-radius: 0.5 * 1.5em;
+        text-align: center;
+        background: $color-main-text;
+        color: $color-main;
+        font-size: $font-size-base;
+        font-weight: bold;
     }
     &__secondary {
         margin: 30px 0 15px;
@@ -114,10 +132,9 @@
             border-top-color: $color-border-light;
         }
         &__folder {
-            position: relative;
             font-size: $font-size-base;
             padding-left: 5px;
-            padding-right: 5px;
+            padding-right: 20px;
             margin-bottom: 12px;
             a {
                 color: $color-main;
@@ -130,6 +147,18 @@
                 position: absolute;
                 right: 0;
                 top: 0.25em;
+            }
+        }
+        &__counter {
+            display: inline;
+            position: static;
+            font-weight: inherit;
+            font-size: inherit;
+            &:before {
+                content: '(';
+            }
+            &:after {
+                content: ')';
             }
         }
         &__secondary {
