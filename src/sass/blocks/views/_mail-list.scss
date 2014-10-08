@@ -355,6 +355,12 @@
                 &:first-child {
                     fill: $color-main;
                 }
+                &:hover {
+                    fill: $color-text;
+                    &:first-child {
+                        fill: darken($color-main, 10%);
+                    }
+                }
             }
         }
         &__flags-encrypted > svg {

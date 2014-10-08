@@ -70,4 +70,11 @@
             transition: opacity 0.2s, transform 0.2s;
         }
     }
+
+    &:hover,
+    &:focus {
+        span {
+            border-color: $color-text;
+        }
+    }
 }
