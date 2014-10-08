@@ -1,10 +1,12 @@
 <div class="mail-list" ng-controller="MailListCtrl">
 
   <header>
-    <button class="btn-navicon" wo-touch="state.nav.toggle(true); $event.stopPropagation()">
-      <svg><use xlink:href="#icon-navicon" /><title>Toggle Navigation</title></svg>
-    </button>
-    <h2>{{state.nav.currentFolder.type}}</h2>
+    <div wo-touch="state.nav.toggle(true); $event.stopPropagation()">
+      <button class="btn-navicon">
+        <svg><use xlink:href="#icon-navicon" /><title>Toggle Navigation</title></svg>
+      </button>
+      <h2>{{state.nav.currentFolder.type}}</h2>
+    </div>
 
     <button class="btn-icon" title="New mail" wo-touch="state.writer.write(); $event.stopPropagation()">
       <svg><use xlink:href="#icon-write" /><title>New mail</title></svg>
