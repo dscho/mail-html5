@@ -216,9 +216,11 @@
     }
 
     & > svg {
-        width: 1.2em;
-        height: 1.2em;
+        width: 1.05em;
+        height: 1.05em;
         fill: $color-main;
+        vertical-align: middle;
+        margin-top: -0.1em; // optimize valignment
     }
 
     &--disabled,
