@@ -18,7 +18,7 @@
         & > header {
             position: relative;
             flex-shrink: 0;
-            padding: ($padding-vertical + 5px) $padding-horizontal;
+            padding: $padding-horizontal ($padding-vertical + 5px) 0;
 
             .btn-navicon {
                 float: left;
@@ -39,6 +39,14 @@
                 right: $padding-horizontal;
                 margin-top: -0.05em; // for perfect vertical alignment with headline
             }
+
+            &.wo-touch-active {
+                background: $color-touch-active;
+            }
+        }
+        &__search {
+            flex-shrink: 0;
+            padding: 0 ($padding-vertical + 5px) $padding-horizontal;
         }
 
         &__scroll-canvas {

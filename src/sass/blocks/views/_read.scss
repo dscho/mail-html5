@@ -58,6 +58,9 @@
                 display: none;
             }
         }
+        &.wo-touch-active {
+            background: $color-touch-active;
+        }
     }
     &__time {
         display: block;

@@ -48,7 +48,8 @@ var app = angular.module('mail', [
     'privatekey-upload',
     'popover',
     'infinite-scroll',
-    'ngTagsInput'
+    'ngTagsInput',
+    'woDirectives'
 ]);
 
 // set router paths
