@@ -213,17 +213,22 @@
         &__flags-favorite {
             display: none; // feature on touch layout not available for now
         }
-        &__flags-encrypted > svg {
-            fill: $color-text-light;
-            &:first-child {
-                fill: $color-main;
-            }
+        &__flags-encrypted {
+            display: none; // hidden on touch layout
         }
         &__flags-answered > svg {
             fill: $color-text-light;
         }
-        &__attachment {
+        &__flags-attachment {
             display: none; // hidden in default state
+            & > svg {
+                fill: $color-text-light;
+            }
+        }
+        &__attachment {
+            display: none; // hidden on touch layout
+        }
+        &__encrypted {
             position: absolute;
             top: $padding-vertical;
             right: $padding-vertical;
@@ -235,6 +240,9 @@
                 width: 1em;
                 height: 1em;
                 fill: $color-text-light;
+                &:first-child {
+                    fill: $color-main;
+                }
             }
         }
 
@@ -301,10 +309,11 @@
             .mail-list-entry__flags-unread:after {
                 background-color: $color-main-text;
             }
-            .mail-list-entry__attachment > svg,
+            .mail-list-entry__flags-answered > svg,
             .mail-list-entry__flags-encrypted > svg,
-            .mail-list-entry__flags-encrypted > svg:first-child,
-            .mail-list-entry__flags-answered > svg {
+            .mail-list-entry__flags-attachment > svg,
+            .mail-list-entry__encrypted > svg,
+            .mail-list-entry__encrypted > svg:first-child {
                 fill: $color-main-text;
             }
         }
@@ -372,6 +381,9 @@
         &__flags-answered > svg {
             fill: $color-text-light;
         }
+        &__flags-attachment {
+            display: none !important; // hidden on desktop layout
+        }
         &__attachment {
             display: table-cell;
             box-sizing: content-box;
@@ -411,7 +423,10 @@
             white-space: nowrap;
         }
         &__excerpt {
-            display: none;
+            display: none; // hidden on desktop layout
+        }
+        &__encrypted {
+            display: none; // hidden on desktop layout
         }
 
         // Modifiers
