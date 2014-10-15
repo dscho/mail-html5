@@ -18,16 +18,16 @@
         & > header {
             position: relative;
             flex-shrink: 0;
-            padding: $padding-horizontal ($padding-vertical + 5px) 0;
+            padding: $padding-horizontal ($padding-vertical + 5px);
+            cursor: pointer;
 
             .btn-navicon {
                 float: left;
-                margin-right: 0.5em;
+                margin-right: 1em;
             }
             h2 {
                 @include scut-truncate;
                 padding-top: 4px; // depends on height of .btn-navicon
-                margin-bottom: 10px;
                 padding-right: 50px; // depends on with of .btn-icon
                 color: $color-grey-dark;
                 font-size: $font-size-bigger;
@@ -46,7 +46,7 @@
         }
         &__search {
             flex-shrink: 0;
-            padding: 0 ($padding-vertical + 5px) $padding-horizontal;
+            padding: 0 $padding-horizontal $padding-vertical;
         }
 
         &__scroll-canvas {
@@ -155,7 +155,7 @@
 
     @include respond-to(not-lg) {
         $padding-horizontal: 30px;
-        $padding-vertical: 9px;
+        $padding-vertical: 11px;
 
         position: relative;
         display: block;
