@@ -3,24 +3,25 @@
     $padding:           5px;
     $li-height:         $height - 2 * $padding - 2 * 1px;
 
-
     list-style: none;
     border: 1px solid $color-border-light;
     margin: 0;
-    padding: $padding;
-    height: $height;
+    padding: $padding $padding 0 $padding;
     text-align: left;
 
     & > li {
         display: inline-block;
         height: $li-height;
+        max-width: 100%;
         line-height: $li-height - 1px;
         border-radius: 0.5 * ($li-height);
         vertical-align: middle;
-        margin-left: $padding;
+        margin-right: $padding;
+        margin-bottom: $padding;
         padding: 0 10px;
         border: 1px solid $color-border-light;
         cursor: pointer;
+        @include scut-truncate;
 
         &:first-child {
             margin-left: 0;
