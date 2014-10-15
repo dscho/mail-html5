@@ -250,10 +250,7 @@
                 vertical-align: middle;
                 width: 1em;
                 height: 1em;
-                fill: $color-text-light;
-                &:first-child {
-                    fill: $color-main;
-                }
+                fill: $color-main;
             }
         }
 
@@ -384,10 +381,7 @@
             }
         }
         &__flags-encrypted > svg {
-            fill: $color-text-light;
-            &:first-child {
-                fill: $color-main;
-            }
+            fill: $color-main;
         }
         &__flags-answered > svg {
             fill: $color-text-light;
