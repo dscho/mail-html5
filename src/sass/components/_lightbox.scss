@@ -14,6 +14,9 @@
         text-align: left;
         backface-visibility: hidden;
     }
+    @include respond-to(lg) {
+        max-width: $lightbox-max-width + 100px;
+    }
 
     .lightbox-body {
         position: relative;
@@ -27,12 +30,15 @@
         @include respond-to(md) {
             max-height: $lightbox-min-height;
         }
+        @include respond-to(lg) {
+            max-height: $lightbox-min-height + 50px;
+        }
 
         & > header {
             flex-shrink: 0;
             text-align: center;
             position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             button.close {
                 position: absolute;
                 top: 0px;
