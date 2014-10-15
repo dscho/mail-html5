@@ -14,7 +14,7 @@
     & > li {
         display: inline-block;
         height: $li-height;
-        line-height: $li-height;
+        line-height: $li-height - 1px;
         border-radius: 0.5 * ($li-height);
         vertical-align: middle;
         margin-left: $padding;
