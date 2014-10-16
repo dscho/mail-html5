@@ -493,7 +493,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dist-js', ['browserify', 'exorcise', 'uglify']);
     grunt.registerTask('dist-copy', ['copy']);
     grunt.registerTask('dist-assets', ['svgmin', 'svgstore', 'string-replace']);
-    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-assets', 'dist-copy', 'manifest']);
+    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-assets', 'dist-copy', 'manifest']);
 
     // Test/Dev tasks
     grunt.registerTask('dev', ['connect:dev']);

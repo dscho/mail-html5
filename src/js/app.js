@@ -33,6 +33,7 @@ var DialogCtrl = require('./controller/dialog'),
     NavigationCtrl = require('./controller/navigation'),
     errorUtil = require('./util/error'),
     backButtonUtil = require('./util/backbutton-handler');
+require('./directives/common');
 
 // init main angular module including dependencies
 var app = angular.module('mail', [
@@ -45,7 +46,6 @@ var app = angular.module('mail', [
     'contacts',
     'login-new-device',
     'privatekey-upload',
-    'popover',
     'infinite-scroll',
     'ngTagsInput',
     'woDirectives'
