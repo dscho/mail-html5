@@ -71,16 +71,16 @@ ngModule.directive('woDropdown', function($document, $timeout) {
             dropdown[0].style.top = (offsetElm.top - offsetDropdownParent.top +
                 elm[0].offsetHeight) + 'px';
             switch (position) {
-                case 'center':
-                    dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left +
+            case 'center':
+                dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left +
                         elm[0].offsetWidth / 2 - dropdown[0].offsetWidth / 2) + 'px';
-                    break;
-                case 'right':
-                    dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left +
+                break;
+            case 'right':
+                dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left +
                         elm[0].offsetWidth - dropdown[0].offsetWidth) + 'px';
-                    break;
-                default:
-                    dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left) + 'px';
+                break;
+            default:
+                dropdown[0].style.left = (offsetElm.left - offsetDropdownParent.left) + 'px';
             }
 
             // Wait till browser repaint
